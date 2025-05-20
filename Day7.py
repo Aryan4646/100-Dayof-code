@@ -5,10 +5,10 @@ import hangman_Ascii
 print("Welcome to Hangman!\n")
 random_word = random.choice(list_hangman_Day_7.hangman_words)
 guess_word = ["_"] * len(random_word)
-lives = 7
+lives = 8
 guessed_letters = []
 
-print(f"You need to guess the word of length {len(random_word)}: {' '.join(guess_word)}")
+print(f"You need to guess the word of length {len(random_word)}: {''.join(guess_word)}")
 
 while lives > 0:
     letter = input("Guess a letter: ").lower()
