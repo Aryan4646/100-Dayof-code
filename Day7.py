@@ -1,40 +1,42 @@
 import random
+import list_hangman_Day_7
+import hangman_Ascii
 
-words = ['apple', 'banana', 'cat', 'dog', 'elephant', 'fish', 'giraffe', 'hat']
-word = random.choice(words)  # simpler way to get a random word
-word_guess = ['_'] * len(word)
-total_life = 6
-guessed_letters = set()
+print("Welcome to Hangman!\n")
+random_word = random.choice(list_hangman_Day_7.hangman_words)
+guess_word = ["_"] * len(random_word)
+lives = 7
+guessed_letters = []
 
-print("Welcome to Hangman!")
-print(" ".join(word_guess))
+print(f"You need to guess the word of length {len(random_word)}: {' '.join(guess_word)}")
 
-while total_life > 0:
-    if ''.join(word_guess) == word:
-        print("You guessed the word correctly! 🎉")
-        break
+while lives > 0:
+    letter = input("Guess a letter: ").lower()
 
-    guess_letter = input("Guess a letter:\n").lower()
-
-    if guess_letter in guessed_letters:
-        print("You already guessed that letter.")
+    if letter in guessed_letters:
+        print(f"You already guessed the letter: {letter}")
         continue
 
-    guessed_letters.add(guess_letter)
+    guessed_letters.append(letter)
 
-    if guess_letter in word:
-        for i in range(len(word)):
-            if word[i] == guess_letter:
-                word_guess[i] = guess_letter
-        print("Correct!")
+    if letter in random_word:
+        for i in range(len(random_word)):
+            if random_word[i] == letter:
+                guess_word[i] = letter
+        print("Correct guess!")
     else:
-        total_life -= 1
-        print(f"Incorrect. You have {total_life} lives remaining.")
+        lives -= 1
+        print(f"Wrong guess. Lives remaining: {lives}")
+        print(hangman_Ascii.hangman_stages[7 - lives])
 
-    print(" ".join(word_guess))
+    print(" ".join(guess_word))
 
-if ''.join(word_guess) != word:
-    print(f"You lost! The word was '{word}'.")
+    if ''.join(guess_word) == random_word:
+        print("Congratulations! You guessed the word.")
+        break
+else:
+    print(f"You lost! The correct word was: {random_word}")
+
 
 
 
