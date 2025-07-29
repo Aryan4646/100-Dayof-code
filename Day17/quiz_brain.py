@@ -1,6 +1,3 @@
-#todo 1 asking the questions
-#todo 2 checking if the answer is correct
-#todo 3 checking if we are at the end of quiz
 
 class QuizBrain:
 
