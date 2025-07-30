@@ -1,7 +1,10 @@
 from turtle import Turtle, Screen
+import colorgram
 import random
+import turtle
 timmy = Turtle()
 screen = Screen()
+
 timmy.shape("turtle")
 timmy.color("red")
 
@@ -31,5 +34,85 @@ timmy.color("red")
 #     timmy.color(f"{random.choice(colors)}")
 
 # Generate a random walk
+# colors = [
+#     "red", "blue", "green", "yellow", "orange", "purple", "hotpink", "cyan",
+#     "magenta", "turquoise", "ivory4", "khaki1", "LightBlue1", "gold", "lightgreen",
+#     "salmon", "plum", "wheat", "slategray", "navy", "lime", "chocolate", "orchid"
+# ]
+
+# directions = [0, 90, 180 ,270]
+# turtle.colormode(255)
+#
+# def random_Color():
+#     r = random.randint(0,255)
+#     g = random.randint(0,255)
+#     b = random.randint(0,255)
+#     r_color = (r, g, b)
+#     return r_color
+#
+# def random_walk(x):
+#     timmy.speed("fastest")
+#     timmy.color(random_Color())
+#     timmy.pensize(15)
+#     timmy.setheading(x)
+#     timmy.forward(30)
+#
+# for i in range(300):
+#     x = random.choice(directions)
+#     random_walk(x)
+
+# Make a spirograph
+
+#
+# turtle.colormode(255)
+# def random_Color():
+#     r = random.randint(0,255)
+#     g = random.randint(0,255)
+#     b = random.randint(0,255)
+#     r_color = (r, g, b)
+#     return r_color
+#
+#
+# for i in range(1000):
+#     timmy.speed("fastest")
+#     timmy.color(random_Color())
+#     timmy.circle(100)
+#     current_heading = timmy.heading()
+#     timmy.setheading(current_heading+5)
+
+# colors = colorgram.extract('download.jpeg',9)
+# rgb_col = []
+# for color in colors:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r,g,b)
+#     rgb_col.append(new_color)
+# print(rgb_col)
+
+
+# Painting
+turtle.colormode(255)
+color_list = [(235, 234, 232), (237, 238, 240), (243, 235, 240), (230, 241, 236), (166, 96, 23), (227, 137, 74), (15, 32, 55), (237, 78, 95), (45, 106, 147)]
+
+
+timmy.setheading(225)
+timmy.penup()
+timmy.forward(50)
+timmy.setheading(0)
+timmy.pendown()
+for j in range(10):
+    timmy.hideturtle()
+    timmy.penup()
+    for i in range(10):
+        timmy.dot(20,random.choice(color_list))
+        timmy.forward(30)
+    timmy.left(90)
+    timmy.forward(30)
+    timmy.left(90)
+    timmy.forward(300)
+    timmy.setheading(0)
+
+
 
 screen.exitonclick()
